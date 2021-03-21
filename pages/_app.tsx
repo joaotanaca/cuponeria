@@ -2,6 +2,9 @@ import React from 'react';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import Global from 'styles/global';
+import Navbar from 'src/components/Navbar';
+import Footer from 'src/components/Footer';
+import Header from 'src/components/Header';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -14,7 +17,10 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
       </Head>
       <Global />
+      <Navbar />
+      <Header />
       <Component {...pageProps} />
+      <Footer />
     </>
   );
 }

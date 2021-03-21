@@ -1,16 +1,19 @@
 import React, { HTMLAttributes } from 'react';
-import { Container, Menu, Link } from './styles';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
+import { UrlObject } from 'node:url';
+import { Container, Menu, LinkButton } from './styles';
 import Logo from './logo.svg';
 import Inicio from './inicio.svg';
 import Roupas from './roupas.svg';
 import Eletronico from './eletronicos.svg';
 import Acessorios from './acessorios.svg';
-import { useRouter } from 'next/router';
 
 interface SubMenuProps extends HTMLAttributes<HTMLButtonElement> {
   icon: JSX.Element;
   name: string;
   active: boolean;
+  href: string | UrlObject;
 }
 
 const components: React.FC = () => {
@@ -24,17 +27,29 @@ const components: React.FC = () => {
       </Container>
       <Menu>
         <div className="container">
-          <SubMenu active={pathname === '/'} icon={<Inicio />} name="início" />
-          <SubMenu active={pathname === '/aa'} icon={<Roupas />} name="roupas" />
+          <SubMenu
+            active={pathname === '/'}
+            icon={<Inicio />}
+            name="início"
+            href="/"
+          />
+          <SubMenu
+            active={pathname === '/aa'}
+            icon={<Roupas />}
+            name="roupas"
+            href="/roupas"
+          />
           <SubMenu
             active={pathname === '/a'}
             icon={<Eletronico />}
             name="eletrônicos"
+            href="/eletronicos"
           />
           <SubMenu
             active={pathname === '/b'}
             icon={<Acessorios />}
             name="acessórios"
+            href="/acessórios"
           />
         </div>
       </Menu>
@@ -42,11 +57,13 @@ const components: React.FC = () => {
   );
 };
 
-const SubMenu = ({ icon, name, ...props }: SubMenuProps) => {
+const SubMenu = ({ icon, name, href, ...props }: SubMenuProps) => {
   return (
-    <Link {...props}>
-      {icon}
-      <em>{name}</em>
+    <Link href={href}>
+      <LinkButton {...props}>
+        {icon}
+        <em>{name}</em>
+      </LinkButton>
     </Link>
   );
 };

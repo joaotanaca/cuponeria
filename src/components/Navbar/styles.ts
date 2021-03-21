@@ -19,12 +19,13 @@ export const Menu = styled.div`
   }
 `;
 
-export const Link = styled.button<{ active: boolean }>`
+export const LinkButton = styled.button<{ active: boolean }>`
   background-color: #fff;
   display: flex;
   align-items: center;
   height: 100%;
   color: ${({ active }) => (active ? '#ff0000' : '#000')};
+  cursor: pointer;
   em {
     font-size: 16px;
     font-weight: normal;
