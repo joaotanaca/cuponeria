@@ -10,7 +10,8 @@ export const Container = styled.div.attrs({ className: 'container' })`
   ${mixins.sm`
     grid-template-columns: 1fr;
     h4{
-      display:none;
+      text-align:center;
+      margin-bottom:10px;
     }
   `}
   h4 {
