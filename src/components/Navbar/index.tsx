@@ -17,7 +17,8 @@ interface SubMenuProps extends HTMLAttributes<HTMLButtonElement> {
 }
 
 const components: React.FC = () => {
-  const { pathname } = useRouter();
+  const { pathname, query } = useRouter();
+
   return (
     <>
       <Container>
@@ -34,22 +35,22 @@ const components: React.FC = () => {
             href="/"
           />
           <SubMenu
-            active={pathname === '/aa'}
+            active={query.category === 'clothing'}
             icon={<Roupas />}
             name="roupas"
-            href="/roupas"
+            href="/categories/clothing"
           />
           <SubMenu
-            active={pathname === '/a'}
+            active={query.category === 'electronics'}
             icon={<Eletronico />}
             name="eletrônicos"
-            href="/eletronicos"
+            href="/categories/electronics"
           />
           <SubMenu
-            active={pathname === '/b'}
+            active={query.category === 'jewelery'}
             icon={<Acessorios />}
             name="acessórios"
-            href="/acessórios"
+            href="/categories/jewelery"
           />
         </div>
       </Menu>

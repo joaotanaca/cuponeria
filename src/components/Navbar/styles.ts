@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import mixins from 'styles/mixins';
 
 export const Container = styled.div`
   width: 100%;
@@ -16,6 +17,9 @@ export const Menu = styled.div`
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
+    ${mixins.sm`
+      justify-content:space-around;
+    `}
   }
 `;
 
@@ -26,6 +30,11 @@ export const LinkButton = styled.button<{ active: boolean }>`
   height: 100%;
   color: ${({ active }) => (active ? '#ff0000' : '#000')};
   cursor: pointer;
+  ${mixins.sm`
+    em{
+      display:none;
+    }
+  `}
   em {
     font-size: 16px;
     font-weight: normal;

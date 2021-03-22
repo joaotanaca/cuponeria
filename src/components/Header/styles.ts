@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import mixins from 'styles/mixins';
 
 export const Container = styled.div.attrs({ className: 'container' })`
   display: grid;
@@ -6,6 +7,12 @@ export const Container = styled.div.attrs({ className: 'container' })`
   justify-content: space-between;
   align-items: center;
   margin-top: 30px;
+  ${mixins.sm`
+    grid-template-columns: 1fr;
+    h4{
+      display:none;
+    }
+  `}
   h4 {
     font-size: 24px;
     color: #000000b3;
