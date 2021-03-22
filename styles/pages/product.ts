@@ -3,7 +3,6 @@ import mixins from 'styles/mixins';
 
 export const ContainerProduct = styled.div.attrs({ className: 'container' })`
   min-height: 400px;
-  margin-top: 20px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin-top: 30px;
@@ -12,10 +11,15 @@ export const ContainerProduct = styled.div.attrs({ className: 'container' })`
     grid-template-columns: 1fr;
     .image{
       margin-bottom:30px;
+      margin-right:0!important;
     }
     .informations{
+      margin-left:0!important;
       h1{
         margin-bottom:5px;
+      }
+      button{
+        max-width:100%;
       }
     }
   `}
